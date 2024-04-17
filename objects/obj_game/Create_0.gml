@@ -15,5 +15,5 @@ fire: mb_left
 
 if (!rollback_join_game())
 {
-	rollback_create_game(2, false);
+	rollback_create_game(2, true);
 }
