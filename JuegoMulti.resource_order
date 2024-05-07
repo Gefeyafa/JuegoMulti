@@ -17,6 +17,7 @@
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"GAI","order":3,"path":"objects/GAI/GAI.yy",},
     {"name":"obj_player","order":1,"path":"objects/obj_player/obj_player.yy",},
     {"name":"obj_projectile","order":2,"path":"objects/obj_projectile/obj_projectile.yy",},
     {"name":"spr_background","order":1,"path":"sprites/spr_background/spr_background.yy",},
