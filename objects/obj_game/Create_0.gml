@@ -15,5 +15,5 @@ fire: mb_left
 
 if (!rollback_join_game())
 {
-	rollback_create_game(2, true);
+	rollback_create_game(1, true); //Cuantos jugadores son (maximo 4)
 }
