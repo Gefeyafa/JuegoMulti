@@ -1,5 +1,7 @@
 /// @description Insert description here
 
+speedPlayer =3;
+
 y = room_height / 2;
 
 if (player_id == 0)

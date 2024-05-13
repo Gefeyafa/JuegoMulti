@@ -2,21 +2,23 @@
 
 var _input = rollback_get_input();
 
+
+
 if (_input.left)
 {
-	x-=1;
+	x-=speedPlayer;
 }
 if (_input.right)
 {
-	x+=1;
+	x+=speedPlayer;
 }
 if (_input.up)
 {
-	y-=1;
+	y-=speedPlayer;
 }
 if (_input.down)
 {
-	y+=1;
+	y+=speedPlayer;
 }
 
 image_angle = point_direction(x, y, _input.mb_x, _input.mb_y)
