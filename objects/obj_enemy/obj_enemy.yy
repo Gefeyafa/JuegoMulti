@@ -1,13 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"GAI",
-  "eventList":[],
+  "%Name":"obj_enemy",
+  "eventList":[
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"GAI",
+  "name":"obj_enemy",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Enemy",
+    "path":"folders/Objects/Enemy.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -27,7 +29,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_enemy",
+    "path":"sprites/spr_enemy/spr_enemy.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
