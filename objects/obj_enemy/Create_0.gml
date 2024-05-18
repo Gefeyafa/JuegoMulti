@@ -1,23 +1,31 @@
 /// @description Inserte aquí la descripción
 // Puede escribir su código en este editor
-image_speed = 0;//en caso de querer personajes con animacion de caminar
-
-
-
+image_speed = 0;
 image_angle_ = 0;
 
-
-//ai state machine
-sightMAX = 120;
-
+// Estado inicial de la máquina de estados
+sightMAX = 180;
 state = "idle";
 emote_index = 0;
 
-//ai
-emote = instance_create_layer(x,y -17, layer, obj_enemy_State_emote);
-emote.instanceToFollow = id;
+// Velocidad del enemigo
+move_speed = 2; // Ajusta esta velocidad según sea necesario
 
-path = path_add();
+// Inicializar emote como una instancia vacía para evitar errores
+emote = noone;
+
+// Inicializar el cooldown de disparo
+shoot_cooldown = 0;
+
+// Iniciar el recorrido del path
+path_start(path_enemy, move_speed, path_action_continue, false);
+//ai
+//emote = instance_create_layer(x,y -17, layer, obj_enemy_State_emote);
+//emote.instanceToFollow = id;
+
+
+/*
+path = noone;
 
 position_Start_X = x;
 position_Start_Y = y;
@@ -32,4 +40,6 @@ walkSpeed_Aggro = 0.75;
 ai_NothingHere_time = 180;
 ai_NothingHere_timer = ai_NothingHere_time;
 
+
+ai_I_See_you = 6;
 

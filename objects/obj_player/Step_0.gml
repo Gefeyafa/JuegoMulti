@@ -39,7 +39,7 @@ image_angle = point_direction(x, y, _input.mb_x, _input.mb_y)
 
 
 //crear bala 
-/*
+
 if(_input.fire_pressed)
 {
 	var _proj = instance_create_layer(x, y, layer, obj_projectile);

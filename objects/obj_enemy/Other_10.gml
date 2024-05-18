@@ -1,10 +1,13 @@
 /// @description Go chec target
 
 //user evene 0
-if(path_exists(path))
+/*
+if(path != noone)
 {
 	path_delete(path);
 }
+
+
 
 path = path_add();
 

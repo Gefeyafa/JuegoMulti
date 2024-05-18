@@ -1,13 +1,116 @@
 /// @description Inserte aquí la descripción
 // Puede escribir su código en este editor
-if(state == "idle"){exit;}
-
-direction = point_direction(x,y, obj_player.x, obj_player.y);
-//image_angle_ = direction;
-
-image_angle_ = lerp(image_angle_, direction, 0.02);
 
 
+
+if (instance_exists(obj_player)) {
+    var player_direction = point_direction(x, y, obj_player.x, obj_player.y);
+    var player_distance = point_distance(x, y, obj_player.x, obj_player.y);
+    var angle_diff = angle_difference(player_direction, image_angle_);
+
+    switch (state) {
+        case "idle":
+            // Actualizar la dirección en las curvas del path
+            if (path_index != -1) { // Verifica que el path esté activo
+                var next_position = path_position + move_speed / path_get_length(path_enemy); // Posición siguiente en el path
+                if (next_position >= 1) {
+                    next_position = 0;
+                }
+                var next_x = path_get_x(path_enemy, next_position);
+                var next_y = path_get_y(path_enemy, next_position);
+
+                // Calcular la dirección hacia el próximo punto del path
+                var target_angle = point_direction(x, y, next_x, next_y);
+
+                // Apuntar hacia la dirección correcta
+                if (abs(next_x - x) > abs(next_y - y)) {
+                    if (next_x > x) {
+                        image_angle_ = 0; // Derecha
+                    } else {
+                        image_angle_ = 180; // Izquierda
+                    }
+                } else {
+                    if (next_y > y) {
+                        image_angle_ = 270; // Abajo
+                    } else {
+                        image_angle_ = 90; // Arriba
+                    }
+                }
+            }
+
+            // Verificar si el jugador está en el rango de visión y no hay obstáculos
+            if (player_distance < sightMAX && abs(angle_diff) < 90) {
+                var lineWall = collision_line(x, y, obj_player.x, obj_player.y, obj_wall, true, true);
+                if (lineWall == noone) {
+                    path_end();
+                    state = "alert";
+                }
+            }
+            break;
+
+        case "alert":
+            // Verificar si el jugador sigue dentro del rango de visión y no hay obstáculos
+            if (player_distance >= sightMAX || abs(angle_diff) >= 90 || collision_line(x, y, obj_player.x, obj_player.y, obj_wall, true, true) != noone) {
+                var start_x = path_get_x(path_enemy, 0);
+                var start_y = path_get_y(path_enemy, 0);
+                var distance_to_start = point_distance(x, y, start_x, start_y);
+
+                // Si la distancia al punto de inicio es grande, cambiar al estado de retorno
+                if (distance_to_start > move_speed) {
+                    state = "returning_to_start";
+                } else {
+                    state = "idle";
+                    path_start(path_enemy, move_speed, path_action_continue, false);
+                }
+            } else {
+                // Apuntar drásticamente hacia el jugador
+                image_angle_ = player_direction;
+
+                // Disparar un proyectil
+                if (shoot_cooldown <= 0) {
+                    var projectile = instance_create_layer(x, y, "Instances", obj_projectile_enemy); // Usa la capa "Instances"
+                    projectile.direction = image_angle_; // Ajusta la dirección del proyectil
+                    projectile.image_angle = image_angle_; // Ajusta la rotación del sprite del proyectil
+                    shoot_cooldown = 30; // Cooldown de 30 pasos antes de disparar nuevamente
+                } else {
+                    shoot_cooldown -= 1;
+                }
+            }
+            break;
+
+        case "returning_to_start":
+            var start_x = path_get_x(path_enemy, 0);
+            var start_y = path_get_y(path_enemy, 0);
+
+            // Moverse hacia el punto de inicio a la velocidad del path
+            move_towards_point(start_x, start_y, move_speed);
+
+            // Si está cerca del punto de inicio, cambiar al estado idle y reiniciar el recorrido del path
+            if (point_distance(x, y, start_x, start_y) < move_speed) {
+                state = "idle";
+                path_start(path_enemy, move_speed, path_action_continue, false);
+                image_angle_ = 0; // Apunta hacia la derecha cuando regresa al inicio
+            }
+            break;
+    }
+}
+
+// Máquina de estados para los sprites de arriba del enemigo
+switch (state) {
+    case "idle":
+        emote_index = 0;
+        break;
+    case "alert":
+        emote_index = 2;
+        break;
+    case "returning_to_start":
+        emote_index = 0; // Cambiar esto según sea necesario
+        break;
+}
+
+
+//if(state == "idle"){exit;}
+/*
 //ai
 if(state == "check out"){
 	event_user(0); state = "checking out"; emote.sprite_index =spr_Emote_Enemy_State_Roaming;
@@ -43,36 +146,6 @@ if(state == "going back")
 	}
 }
 
-/*
-//maquina de estados para los sprite de arriba del enemigo
-switch (state)
-{
-	case "idle": emote_index = 0; break;
-	case "alert": emote_index = 1; break;
-	
-}
 
 
-//Dibujar la distancia del PLayer
-
-switch(state)
-{
-	case "idle":
-	
-	if(instance_exists(obj_player))
-	{
-		if(point_distance(x,y, obj_player.x, obj_player.y) < sightMAX)
-		{
-			var totalAngle = point_direction(x,y, obj_player.x, obj_player.y);
-			
-			if(abs(angle_difference(totalAngle, image_angle_)) < 30)
-			{
-				//Se pone en alerta si no hay ninguna colision
-				var lineWall = collision_line(x,y, x +lengthdir_x(sightMAX, image_angle_), y + lengthdir_y(sightMAX, image_angle_), obj_collision, 0,0);
-				if(lineWall == noone){state = "alert";}
-			}
-		}
-	}
-	break;
-}
 */

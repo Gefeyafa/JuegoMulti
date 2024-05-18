@@ -14,3 +14,11 @@ else if (player_id == 1)
 }
 
 points = 0;
+
+
+
+//activar enemigos
+ai_refresh = 10;
+alarm[0] = ai_refresh;
+
+ai_Circle_Range = 100;
