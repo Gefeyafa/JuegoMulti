@@ -30,12 +30,12 @@ if (instance_exists(target_player)) {
         case "idle":
             // Actualizar la dirección en las curvas del path
             if (path_index != -1) { // Verifica que el path esté activo
-                var next_position = path_position + move_speed / path_get_length(path_enemy); // Posición siguiente en el path
+                var next_position = path_position + move_speed / path_get_length(path_enemy1); // Posición siguiente en el path
                 if (next_position >= 1) {
                     next_position = 0;
                 }
-                var next_x = path_get_x(path_enemy, next_position);
-                var next_y = path_get_y(path_enemy, next_position);
+                var next_x = path_get_x(path_enemy1, next_position);
+                var next_y = path_get_y(path_enemy1, next_position);
 
                 // Calcular la dirección hacia el próximo punto del path
                 var target_angle = point_direction(x, y, next_x, next_y);
@@ -69,8 +69,8 @@ if (instance_exists(target_player)) {
         case "alert":
             // Verificar si el jugador sigue dentro del rango de visión y no hay obstáculos
             if (player_distance >= sightMAX || abs(angle_diff) >= 90 || collision_line(x, y, target_player.x, target_player.y, obj_wall, true, true) != noone) {
-                var start_x = path_get_x(path_enemy, 0);
-                var start_y = path_get_y(path_enemy, 0);
+                var start_x = path_get_x(path_enemy1, 0);
+                var start_y = path_get_y(path_enemy1, 0);
                 var distance_to_start = point_distance(x, y, start_x, start_y);
 
                 // Si la distancia al punto de inicio es grande, cambiar al estado de retorno
@@ -78,7 +78,7 @@ if (instance_exists(target_player)) {
                     state = "returning_to_start";
                 } else {
                     state = "idle";
-                    path_start(path_enemy, move_speed, path_action_continue, false);
+                    path_start(path_enemy1, move_speed, path_action_continue, false);
                 }
             } else {
                 // Apuntar drásticamente hacia el jugador
@@ -97,8 +97,8 @@ if (instance_exists(target_player)) {
             break;
 
         case "returning_to_start":
-            var start_x = path_get_x(path_enemy, 0);
-            var start_y = path_get_y(path_enemy, 0);
+            var start_x = path_get_x(path_enemy1, 0);
+            var start_y = path_get_y(path_enemy1, 0);
 
             // Moverse hacia el punto de inicio a la velocidad del path
             move_towards_point(start_x, start_y, move_speed);
@@ -106,7 +106,7 @@ if (instance_exists(target_player)) {
             // Si está cerca del punto de inicio, cambiar al estado idle y reiniciar el recorrido del path
             if (point_distance(x, y, start_x, start_y) < move_speed) {
                 state = "idle";
-                path_start(path_enemy, move_speed, path_action_continue, false);
+                path_start(path_enemy1, move_speed, path_action_continue, false);
                 image_angle_ = 0; // Apunta hacia la derecha cuando regresa al inicio
             }
             break;

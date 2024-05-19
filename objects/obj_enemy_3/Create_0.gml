@@ -18,7 +18,7 @@ emote = noone;
 shoot_cooldown = 0;
 
 // Iniciar el recorrido del path
-path_start(path_enemy, move_speed, path_action_continue, false);
+path_start(path_enemy3, move_speed, path_action_continue, false);
 
 // Inicializar target_player como noone
 target_player = noone;
