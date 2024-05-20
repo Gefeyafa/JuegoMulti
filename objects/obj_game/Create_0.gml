@@ -13,5 +13,5 @@ rollback_define_input({
 });
 
 if (!rollback_join_game()) {
-    rollback_create_game(2, true); // Cuantos jugadores son (maximo 4)
+    rollback_create_game(4, true); // Cuantos jugadores son (maximo 4)
 }
