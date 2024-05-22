@@ -12,6 +12,9 @@ rollback_define_input({
     fire: mb_left
 });
 
+global.game_started = true;
+
 if (!rollback_join_game()) {
-    rollback_create_game(2, true); // Cuantos jugadores son (maximo 4)
+    rollback_create_game(2, false); // Cuantos jugadores son (maximo 4)
+    global.game_started = true;
 }
