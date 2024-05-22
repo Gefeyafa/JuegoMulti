@@ -9,9 +9,9 @@ rollback_define_input({
     down: ord("S"),
     mb_x: m_axisx,
     mb_y: m_axisy,
-    fire_pressed: mb_left
+    fire: mb_left
 });
 
 if (!rollback_join_game()) {
-    rollback_create_game(4, true); // Cuantos jugadores son (maximo 4)
+    rollback_create_game(2, true); // Cuantos jugadores son (maximo 4)
 }
