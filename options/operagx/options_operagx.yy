@@ -5,7 +5,7 @@
   "option_operagx_display_cursor":true,
   "option_operagx_editUrl":"https://create.gx.games/game/c899e765-6855-42c7-8ace-a9f932b86a65/edit",
   "option_operagx_game_name":"JuegoMultiShooter",
-  "option_operagx_guid":"c899e765-6855-42c7-8ace-a9f932b86a65",
+  "option_operagx_guid":"",
   "option_operagx_internalShareUrl":"https://gx.games/games/dbd9nv/juegomultishooter/tracks/c2d2a2e8-811a-4d45-a85a-081878738bc7/",
   "option_operagx_interpolate_pixels":false,
   "option_operagx_mod_editUrl":"",
