@@ -2,10 +2,10 @@
   "$GMSprite":"",
   "%Name":"Mario_Walk_Right",
   "bboxMode":0,
-  "bbox_bottom":27,
-  "bbox_left":9,
-  "bbox_right":24,
-  "bbox_top":12,
+  "bbox_bottom":25,
+  "bbox_left":6,
+  "bbox_right":26,
+  "bbox_top":8,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
@@ -13,8 +13,6 @@
   "For3D":false,
   "frames":[
     {"$GMSpriteFrame":"","%Name":"89a9705b-ef4d-4462-81b9-54fe3b9ac889","name":"89a9705b-ef4d-4462-81b9-54fe3b9ac889","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"25823d3a-7445-47b5-b4b7-fb0a782f8d5e","name":"25823d3a-7445-47b5-b4b7-fb0a782f8d5e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"8c56e027-cc03-4305-b3b3-6aca4fde4515","name":"8c56e027-cc03-4305-b3b3-6aca4fde4515","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":1,
   "gridY":1,
@@ -51,7 +49,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":3.0,
+    "length":1.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -73,12 +71,6 @@
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"89a9705b-ef4d-4462-81b9-54fe3b9ac889","path":"sprites/Mario_Walk_Right/Mario_Walk_Right.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"c8f08ec4-09cc-4a98-9f64-90629cbb6e9b","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"25823d3a-7445-47b5-b4b7-fb0a782f8d5e","path":"sprites/Mario_Walk_Right/Mario_Walk_Right.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"87cdff0d-7194-49c9-aaaf-e3e274993d6a","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"8c56e027-cc03-4305-b3b3-6aca4fde4515","path":"sprites/Mario_Walk_Right/Mario_Walk_Right.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"cffd3dc2-3d7b-42ec-baa5-1b1de662583a","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

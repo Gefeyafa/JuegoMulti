@@ -17,7 +17,7 @@ function scr_game_text(_text_id)
 					
 				case "link - yes":
 				scr_text("La neta, che juego de la ver... ah te creas mi Link, sho te quiero");
-				scr_text("Cabashero, es usted una persona muy concatenada dejeme decirle, me gusta... me gusta...","Link-happy");
+				scr_text("Cabashero, es usted una persona muy concatenada dejeme decirle, me gusta... me gusta...","Link");
 				scr_text("Gracias gracias, igual mente mi estimado");
 				break;
 			
