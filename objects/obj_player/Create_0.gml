@@ -12,8 +12,4 @@ if (player_id == 0) {
 
 points = 0;
 ai_Circle_Range = 100;
-/*
-//activar enemigos
-ai_refresh = 10;
-alarm[0] = ai_refresh;
-
+has_weapon = false; // Nueva variable para rastrear si el jugador tiene el arma
